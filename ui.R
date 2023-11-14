@@ -10,18 +10,18 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      helpText("Enter your weight and height to know how fit you are!"),  
-      selectInput("select_measure", label = h6("Select the measurement"), choices = list("kg vs. cm" = 1, "lb vs. inches" = 703), selected = 1),
-      numericInput("num_weight", label = h6("Enter your weight"),min = 1, value = NULL),
+      helpText("Enter your height and weight to know how fit you are!"),  
+      selectInput("select_measure", label = h6("Select the measurement"), choices = list("Metric (kg vs. cm)" = 1, "Emperical (lb vs. inches)" = 703), selected = 1),
       numericInput("num_height", label = h6("Enter your height"),min = 1, value = NULL),
+      numericInput("num_weight", label = h6("Enter your weight"),min = 1, value = NULL),
       actionButton("action_Calc", label = "CALCULATE")        
     ),
     mainPanel(
       tabsetPanel(
-        tabPanel("Calculator",
-                 p(h3("")), textOutput("text_weight"),
+        tabPanel("Results",
+                 p(h3("")), textOutput("text_height"),
                  p(h5("")),
-                 textOutput("text_height"),
+                 textOutput("text_weight"),
                  p(h3("")),
                  textOutput("text_bmi"),
                  p(h3("")),

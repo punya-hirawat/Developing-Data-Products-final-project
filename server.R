@@ -22,12 +22,18 @@ shinyServer(function(input, output) {
   # Display values entered
   output$text_weight = renderText({
     input$action_Calc
-    paste("Weight: ", isolate(input$num_weight))
+    if(input$select_measure==1)
+      paste("Weight: ", isolate(input$num_weight), "kg")
+    else
+      paste("Weight: ", isolate(input$num_weight), "lb")
   })
   
   output$text_height = renderText({
     input$action_Calc
-    paste("Height: ", isolate(input$num_height))
+    if(input$select_measure==1)
+      paste("Height: ", isolate(input$num_height), "cm")
+    else
+      paste("Height: ", isolate(input$num_height), "in")
   })
   
   
